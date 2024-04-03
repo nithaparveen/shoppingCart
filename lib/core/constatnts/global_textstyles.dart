@@ -4,19 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'colors.dart';
 
 class GLTextStyles {
-  static TextStyle digiBankYellow = GoogleFonts.leagueSpartan(
-    fontSize: 26.0,
-    fontWeight: FontWeight.w600,
-    color: ColorTheme.darkClr,
-  );
-  static TextStyle digiBankGrey = GoogleFonts.leagueSpartan(
-    fontSize: 26.0,
-    fontWeight: FontWeight.w600,
-    color: ColorTheme.grey,
-  );
   static TextStyle titleStyle = GoogleFonts.poppins(
     fontSize: 20.0,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.bold,
     color: ColorTheme.black,
   );
   static TextStyle titleWhite = GoogleFonts.poppins(
@@ -63,7 +53,17 @@ class GLTextStyles {
     color: ColorTheme.grey,
   );
   static TextStyle titleTextBlk = GoogleFonts.raleway(
+    fontSize: 20.0,
+    fontWeight: FontWeight.w800,
+    color: ColorTheme.black,
+  );
+  static TextStyle titleTextBlk600 = GoogleFonts.raleway(
     fontSize: 18.0,
+    fontWeight: FontWeight.w600,
+    color: ColorTheme.black,
+  );
+  static TextStyle titleTextBlk25 = GoogleFonts.raleway(
+    fontSize: 25.0,
     fontWeight: FontWeight.w800,
     color: ColorTheme.black,
   );

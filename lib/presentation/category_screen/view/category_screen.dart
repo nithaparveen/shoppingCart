@@ -1,5 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shopping_cart/presentation/item_view_screen/view/item_view_screen.dart';
 
 import '../../../core/constatnts/colors.dart';
 import '../../../core/constatnts/global_textstyles.dart';
@@ -38,12 +41,12 @@ class _CategoryScreenState extends State<CategoryScreen> {
             backgroundColor: Colors.white,
             title: Text(
               "SHOP",
-              style: GLTextStyles.titleStyle,
+              // style: GLTextStyles.titleTextBlk25,
             ),
             bottom: TabBar(
               tabAlignment: TabAlignment.start,
               labelStyle: TextStyle(
-                  color: ColorTheme.mainClr, fontWeight: FontWeight.w600),
+                  color: ColorTheme.mainClr, fontWeight: FontWeight.w400),
               labelColor: Colors.white,
               unselectedLabelColor: Colors.grey,
               indicatorPadding: EdgeInsets.symmetric(horizontal: 5),
@@ -71,22 +74,37 @@ class _CategoryScreenState extends State<CategoryScreen> {
               ? Center(
                   child: CircularProgressIndicator(),
                 )
-              : ListView.builder(
-                  itemCount: ccontrol.categoryModel.data?.length,
-                  itemBuilder: (context, index) {
-                    return SizedBox(
-                      // height: size.height * .2,
-                      child: ItemCard(
-                          title:
-                              ccontrol.categoryModel.data?[index].title ?? "",
-                          price: ccontrol.categoryModel.data?[index].price ?? 0,
-                          imageUrl:
-                              ccontrol.categoryModel.data?[index].image ?? "",
-                          rating:
-                              ccontrol.categoryModel.data?[index].rating?.rate,
-                          size: size),
-                    );
-                  }),
+              : Padding(
+                padding: const EdgeInsets.only(top: 10),
+                child: ListView.builder(
+                    itemCount: ccontrol.categoryModel.data?.length,
+                    itemBuilder: (context, index) {
+                      return SizedBox(
+                        // height: size.height * .2,
+                        child: InkWell(
+                          onTap: () {
+                            log("tapped");
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=> ItemViewScreen(
+                                title: ccontrol.categoryModel.data?[index].title ?? "",
+                                price: ccontrol.categoryModel.data?[index].price ?? 0,
+                                description: ccontrol.categoryModel.data?[index].description ?? "",
+                                category: ccontrol.categoryModel.data?[index].category.toString() ?? "",
+                                imageUrl: ccontrol.categoryModel.data?[index].image ?? "",
+                                rating: ccontrol.categoryModel.data?[index].rating?.rate,)));
+                          },
+                          child: ItemCard(
+                              title:
+                                  ccontrol.categoryModel.data?[index].title ?? "",
+                              price: ccontrol.categoryModel.data?[index].price ?? 0,
+                              imageUrl:
+                                  ccontrol.categoryModel.data?[index].image ?? "",
+                              rating:
+                                  ccontrol.categoryModel.data?[index].rating?.rate,
+                              size: size),
+                        ),
+                      );
+                    }),
+              ),
         ),
       );
     });
