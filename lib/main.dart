@@ -1,8 +1,14 @@
+
 import 'package:flutter/material.dart';
-import 'package:shopping_cart/presentation/home_screen/home_screen.dart';
+import 'package:provider/provider.dart';
+import 'package:shopping_cart/presentation/home_screen/controller/home_screen_controller.dart';
+import 'package:shopping_cart/presentation/home_screen/view/home_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp( MultiProvider(providers: [
+    ChangeNotifierProvider(create: (context)=> HomeScreenController())
+  ],
+  child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {

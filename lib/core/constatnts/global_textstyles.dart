@@ -24,6 +24,11 @@ class GLTextStyles {
     fontWeight: FontWeight.w600,
     color: ColorTheme.white,
   );
+  static TextStyle titleblack18 = GoogleFonts.poppins(
+    fontSize: 18.0,
+    fontWeight: FontWeight.w700,
+    color: ColorTheme.black,
+  );
   static TextStyle subtitleBlk = GoogleFonts.poppins(
     fontSize: 20.0,
     fontWeight: FontWeight.w500,
@@ -58,8 +63,8 @@ class GLTextStyles {
     color: ColorTheme.grey,
   );
   static TextStyle titleTextBlk = GoogleFonts.raleway(
-    fontSize: 16.0,
-    fontWeight: FontWeight.w600,
+    fontSize: 18.0,
+    fontWeight: FontWeight.w800,
     color: ColorTheme.black,
   );
   static TextStyle bodyTextGrey = GoogleFonts.raleway(
