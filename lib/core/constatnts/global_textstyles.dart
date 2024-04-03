@@ -4,6 +4,16 @@ import 'package:google_fonts/google_fonts.dart';
 import 'colors.dart';
 
 class GLTextStyles {
+  static TextStyle splashText = GoogleFonts.dmSerifDisplay(
+    fontSize: 28.0,
+    fontWeight: FontWeight.bold,
+    color: ColorTheme.mainClr,
+  );
+  static TextStyle title = GoogleFonts.poppins(
+    fontSize: 23.0,
+    fontWeight: FontWeight.bold,
+    color: ColorTheme.black,
+  );
   static TextStyle titleStyle = GoogleFonts.poppins(
     fontSize: 20.0,
     fontWeight: FontWeight.bold,

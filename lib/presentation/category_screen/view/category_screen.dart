@@ -41,7 +41,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
             backgroundColor: Colors.white,
             title: Text(
               "SHOP",
-              // style: GLTextStyles.titleTextBlk25,
+              style: GLTextStyles.title,
             ),
             bottom: TabBar(
               tabAlignment: TabAlignment.start,

@@ -37,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.white,
         title: Text(
           "SHOP",
-          // style: GLTextStyles.titleTextBlk25,
+          style: GLTextStyles.title,
         ),
       ),
       body: Consumer<HomeScreenController>(builder: (context, hcontrol, child) {
