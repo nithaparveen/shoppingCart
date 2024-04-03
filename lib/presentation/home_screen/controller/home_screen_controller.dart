@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
 import 'package:shopping_cart/core/utils/app_utils.dart';
-import 'package:shopping_cart/repository/api/home_screen/model/home_screen_model.dart';
+import 'package:shopping_cart/repository/api/common_model/home_screen_model.dart';
 import 'package:shopping_cart/repository/api/home_screen/service/home_screen_service.dart';
 
 class HomeScreenController extends ChangeNotifier {

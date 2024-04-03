@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 
 class ColorTheme {
-  static Color mainClr = const Color(0xFFF5C754);
+  static Color mainClr = const Color(0xFF355E28);
   static Color white = const Color(0xFFffffff);
   static Color black = const Color.fromARGB(255, 0, 0, 0);
   static Color darkClr = const Color(0xFFb57e3d);

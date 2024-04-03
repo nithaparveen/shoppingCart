@@ -10,6 +10,7 @@ class ApiHelper {
   }) async {
     log("ApiHelper>getData");
     final url = Uri.parse(AppConfig.baseUrl + endPoint);
+    log("final url -> $url");
     try {
       var response = await http.get(url);
       log("Api Called => status code=${response.statusCode}");

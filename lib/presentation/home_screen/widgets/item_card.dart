@@ -9,7 +9,7 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping_cart/core/constatnts/global_textstyles.dart';
 import 'package:shopping_cart/presentation/home_screen/widgets/item_view_screen.dart';
-import 'package:shopping_cart/repository/api/home_screen/model/home_screen_model.dart';
+import 'package:shopping_cart/repository/api/common_model/home_screen_model.dart';
 
 class ItemCard extends StatelessWidget {
   const ItemCard({
