@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping_cart/core/constatnts/global_textstyles.dart';
+import 'package:shopping_cart/presentation/cart_screen/view/cart_screen.dart';
 import 'package:shopping_cart/presentation/home_screen/controller/home_screen_controller.dart';
 import 'package:shopping_cart/presentation/home_screen/widgets/item_card.dart';
 
@@ -31,7 +32,9 @@ class _HomeScreenState extends State<HomeScreen> {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        actions: [IconButton(onPressed: (){}, icon: Icon(Icons.shopping_cart))],
+        actions: [IconButton(onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> CartScreen()));
+        }, icon: Icon(Icons.shopping_cart))],
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.white,

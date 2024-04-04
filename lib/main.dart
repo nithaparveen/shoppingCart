@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping_cart/presentation/bottom_navigation_screen/controller/bottom_navigation_controller.dart';
 import 'package:shopping_cart/presentation/bottom_navigation_screen/view/bottom_navigation_screen.dart';
+import 'package:shopping_cart/presentation/cart_screen/controller/cart_controller.dart';
 import 'package:shopping_cart/presentation/category_screen/controller/category_controller.dart';
 import 'package:shopping_cart/presentation/home_screen/controller/home_screen_controller.dart';
 import 'package:shopping_cart/presentation/home_screen/view/home_screen.dart';
@@ -12,6 +13,8 @@ void main() {
     ChangeNotifierProvider(create: (context) => HomeScreenController()),
     ChangeNotifierProvider(create: (context) => BottomNavController()),
     ChangeNotifierProvider(create: (context) => CategoryController()),
+    ChangeNotifierProvider(create: (context) => CartController()),
+
   ], child: MyApp()));
 }
 
