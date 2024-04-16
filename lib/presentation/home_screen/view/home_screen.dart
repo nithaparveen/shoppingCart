@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping_cart/core/constatnts/global_textstyles.dart';
+import 'package:shopping_cart/global_widget/appbar_global/appbar_global.dart';
 import 'package:shopping_cart/presentation/cart_screen/view/cart_screen.dart';
 import 'package:shopping_cart/presentation/home_screen/controller/home_screen_controller.dart';
 import 'package:shopping_cart/presentation/home_screen/widgets/item_card.dart';
@@ -31,18 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        actions: [IconButton(onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> CartScreen()));
-        }, icon: Icon(Icons.shopping_cart))],
-        centerTitle: true,
-        elevation: 0,
-        backgroundColor: Colors.white,
-        title: Text(
-          "SHOP",
-          style: GLTextStyles.title,
-        ),
-      ),
+      appBar: GLAppBar(title: "SHOP",),
       body: Consumer<HomeScreenController>(builder: (context, hcontrol, child) {
         return hcontrol.isLoading==true
             ? Center(
@@ -69,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           price: hcontrol.homeScreenModel.data?[index].price??0,
                           imageUrl: hcontrol.homeScreenModel.data?[index].image??"",
                           rating: hcontrol.homeScreenModel.data![index].rating?.rate,
-                          size: size),
+                          size: size,),
                     ),
                   );
                 });

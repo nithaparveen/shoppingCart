@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
 // import 'package:news_app_with_api/controller/home-screen_controller.dart';
 import 'package:provider/provider.dart';
+import 'package:shopping_cart/presentation/cart_screen/view/cart_screen.dart';
 
 import '../../../core/constatnts/colors.dart';
 import '../../../core/constatnts/global_textstyles.dart';
+import '../../../global_widget/appbar_global/appbar_global.dart';
 
-class ItemViewScreen extends StatelessWidget {
+class ItemViewScreen extends StatefulWidget {
   const ItemViewScreen({
     super.key,
     required this.title,
@@ -25,33 +28,50 @@ class ItemViewScreen extends StatelessWidget {
   final double? rating;
 
   @override
+  State<ItemViewScreen> createState() => _ItemViewScreenState();
+}
+
+class _ItemViewScreenState extends State<ItemViewScreen> {
+
+  int _cartCount = 0;
+  List<String> _cartItemNames = [];
+  List<String> _cartItemPrices = [];
+  List<String> _cartItemImages = [];
+
+  void addToCart(String itemName, String itemPrice, String itemImage) {
+    setState(() {
+      _cartItemNames.add(itemName);
+      _cartItemPrices.add(itemPrice);
+      _cartItemImages.add(itemImage);
+      _cartCount = _cartItemNames.length; // Update _cartCount
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(onPressed: (){Navigator.pop(context);}, icon: Icon(Icons.arrow_back_rounded,color: Colors.black,size: 25,) ),
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.white,
-        elevation: 0,
-        iconTheme: const IconThemeData(color: Color(0xff6A3DE8), size: 30),
+      appBar: GLAppBar(
+        title: "",
       ),
-      body:
-      Padding(
+      body: Padding(
         padding: const EdgeInsets.all(15),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Center(
-                child:Container(
+                child: Container(
                     height: 250,
                     width: 200,
-                    child: Image(fit:BoxFit.fill,image: NetworkImage(imageUrl!))),
+                    child: Image(
+                        fit: BoxFit.fill,
+                        image: NetworkImage(widget.imageUrl!))),
               ),
               const SizedBox(
                 height: 20,
               ),
               Text(
-                "$title",
+                "${widget.title}",
                 style: GLTextStyles.titleTextBlk,
                 overflow: TextOverflow.ellipsis,
                 maxLines: 4,
@@ -60,7 +80,7 @@ class ItemViewScreen extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                "$description",
+                "${widget.description}",
                 style: GLTextStyles.labeltxtBlk16,
                 overflow: TextOverflow.ellipsis,
                 maxLines: 10,
@@ -69,7 +89,7 @@ class ItemViewScreen extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                "Price : $price",
+                "Price : ${widget.price}",
                 style: GLTextStyles.titleblack18,
               ),
               const SizedBox(
@@ -79,7 +99,7 @@ class ItemViewScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    " ★  $rating",
+                    " ★  ${widget.rating}",
                     style: GLTextStyles.titleblack18,
                   ),
                 ],
@@ -91,7 +111,19 @@ class ItemViewScreen extends StatelessWidget {
                       "Add to Cart",
                       style: GLTextStyles.subtitleWhite,
                     ),
-                    onPressed: () {}),
+                  onPressed: () {
+                    addToCart(widget.title, widget.price.toString(), widget.imageUrl.toString());
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CartScreen(
+                          itemNames: _cartItemNames,
+                          itemPrices: _cartItemPrices,
+                          itemImages: _cartItemImages,
+                        ),
+                      ),
+                    );
+                  },),
               )
             ],
           ),

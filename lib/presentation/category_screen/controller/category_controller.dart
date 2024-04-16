@@ -9,10 +9,10 @@ import '../../../repository/api/category_screen/service/category_screen_service.
 class CategoryController with ChangeNotifier {
  HomeScreenModel categoryModel = HomeScreenModel();
   List<String> categoryList = [
-    "electronics",
-    "jewelery",
-    "men's clothing",
-    "women's clothing"
+    "Electronics",
+    "Jewelery",
+    "Men's clothing",
+    "Women's clothing"
   ];
   bool isLoading = false;
   String category = "electronics";
